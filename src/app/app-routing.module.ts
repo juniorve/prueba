@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   { path: 'register',   loadChildren: './components/register/register.module#RegisterModule'},
+  { path: '', redirectTo: '/register/new-register', pathMatch: 'full' }
 ];
 
 @NgModule({

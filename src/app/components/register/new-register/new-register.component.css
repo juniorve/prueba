@@ -15,19 +15,6 @@
     margin-top: 49px;
   }
   
-  .example-container > * {
-      width: 100%;
-    }
-  
-  .detail{
-      margin-top: 30px;
-      font-weight: bold;
-  }
-  
-  button{
-    margin-top: 10px;
-  }
-  
   .person{
     font-weight: bold;
     font-size: 15px;
