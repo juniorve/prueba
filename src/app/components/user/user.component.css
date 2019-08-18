@@ -1,0 +1,44 @@
+@media (max-width: 991px) { 
+  img{
+    width: 200px;
+    height: 190px;
+  }
+}
+@media (min-width: 992px) { 
+  img{
+    width: 125px;
+    height: 113px;
+  }
+}
+
+img{
+  margin-top: 49px;
+}
+
+.example-container > * {
+    width: 100%;
+  }
+
+.detail{
+    margin-top: 30px;
+    font-weight: bold;
+}
+
+button{
+  margin-top: 10px;
+}
+
+.person{
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.text-image{
+  color: gray;
+  text-align: center;
+  font-size: 13px;
+}
+
+.content-image{
+  text-align: center;
+}
