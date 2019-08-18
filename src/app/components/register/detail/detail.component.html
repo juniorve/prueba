@@ -1,0 +1,76 @@
+<form [formGroup]="detailForm">
+  <div class="row">
+    <div class="col-sm-12">
+      <h3 class="detail">
+        User details
+      </h3>
+    </div>
+    <div class="col-sm-12 example-container">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Full name *" formControlName="full_name">
+        <mat-error *ngIf="detailForm.controls['full_name'].hasError('required')">
+          Full name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-sm-12 example-container">
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Your birthday *" formControlName="birthday">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="detailForm.controls['birthday'].hasError('required')">
+          Birthday is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-sm-12 example-container">
+      <mat-form-field>
+        <mat-label>Gender</mat-label>
+        <mat-select formControlName="gender">
+          <mat-option *ngFor="let gender of listGenders" [value]="gender.value">
+            {{gender.label}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="detailForm.controls['gender'].hasError('required')">
+          Gender is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-sm-4 example-container">
+      <mat-form-field>
+        <mat-label>Country</mat-label>
+        <mat-select formControlName="country">
+          <mat-option *ngFor="let country of listCountries" [value]="country.value">
+            {{country.label}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="detailForm.controls['country'].hasError('required')">
+          country is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="col-sm-8 example-container">
+      <mat-form-field>
+        <input matInput #input maxlength="10" placeholder="Phone *" formControlName="phone">
+        <mat-hint align="start"><strong>mobile:</strong> 094 231 234</mat-hint>
+        <mat-hint align="end"><strong>Fixed:</strong> 2123 1234</mat-hint>
+        <mat-error *ngIf="detailForm.controls['phone'].hasError('required')">
+          Phone is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="col-sm-12 example-container">
+      <mat-form-field>
+        <textarea matInput placeholder="Bio" #bio maxlength="256" formControlName="bio"></textarea>
+        <mat-hint align="start">tell us about yourself</mat-hint>
+        <mat-hint align="end">{{bio.value.length}} / 256</mat-hint>
+      </mat-form-field>
+    </div>
+
+    <div class="col-sm-12">
+      <button mat-flat-button color="primary" [disabled]="!detailForm.valid" (click)="saveDetail()">Submit</button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,41 @@
+<form [formGroup]="accountForm">
+  <div class="row">
+    <div class="col-sm-12">
+      <h3 class="detail">
+        Account details
+      </h3>
+    </div>
+    <div class="col-sm-12 example-container">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="User name *" formControlName="user_name">
+      </mat-form-field>
+    </div>
+    <div class="col-sm-12 example-container">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Email *" formControlName="email">
+        <mat-error *ngIf="accountForm.controls['email'].hasError('email') && !accountForm.controls['email'].hasError('required')">
+          Enter a correct email
+        </mat-error>
+        <mat-error *ngIf="accountForm.controls['email'].hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-sm-12 example-container">
+      <mat-form-field>
+        <input matInput placeholder="Password" type="password" formControlName="password">
+      </mat-form-field>
+    </div>
+    <div class="col-sm-12 example-container">
+      <mat-form-field>
+        <input matInput placeholder="Confirm Password" type="password" formControlName="confirm_password">
+      </mat-form-field>
+    </div>
+    <div class="col-sm-12 example-container">
+      <mat-checkbox formControlName="terms">I accept terms and conditions</mat-checkbox>
+    </div>
+    <div class="col-sm-12">
+      <button mat-flat-button color="primary" [disabled]="!accountForm.valid" (click)="saveAccount()">Submit</button>
+    </div>
+  </div>
+</form>
